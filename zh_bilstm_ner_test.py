@@ -157,7 +157,7 @@ class LossHistory(keras.callbacks.Callback):
 
 #*************
 
-EPOCHS = 10
+EPOCHS = 5
 BATCH_SIZE = 64   # --> 128 or 64 or 32 --
 EMBED_DIM = 300
 HIDDEN_SIZE = 128
@@ -221,6 +221,8 @@ model.fit(train_datas, train_labels, epochs=EPOCHS, verbose=1, validation_split=
 score = model.evaluate(test_datas, test_labels, batch_size=BATCH_SIZE)
 print(model.metrics_names)
 print(score)
+
+score.to_csv("data/score.csv",index=False)
 
 # import pydotplus
 # import keras.utils
